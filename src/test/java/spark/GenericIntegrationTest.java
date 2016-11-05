@@ -117,14 +117,6 @@ public class GenericIntegrationTest {
             return "echo: " + q.params(":paramWithMaj");
         });
 
-        get("/templateView", (q, a) -> {
-            return new ModelAndView("Hello", "my view");
-        }, new TemplateEngine() {
-            public String render(ModelAndView modelAndView) {
-                return modelAndView.getModel() + " from " + modelAndView.getViewName();
-            }
-        });
-
         get("/", (q, a) -> {
             return "Hello Root!";
         });
@@ -209,13 +201,6 @@ public class GenericIntegrationTest {
         UrlResponse response = testUtil.doMethod("GET", "/hi", null, "application/json");
         Assert.assertEquals(200, response.status);
         Assert.assertEquals("{\"message\": \"Hello World\"}", response.body);
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod("GET", "/templateView", null);
-        Assert.assertEquals(200, response.status);
-        Assert.assertEquals("Hello from my view", response.body);
     }
 
     @Test
