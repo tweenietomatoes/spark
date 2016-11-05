@@ -23,8 +23,9 @@ public class SugarExample {
 
     public static void main(String[] args) {
 
-        http.get("/hi", () -> "Hi!");
-        http.get("/hello", (q, a) -> "Hello!");
+        SparkSugar.get("/hi", () -> "Hi!");
+        SparkSugar.get("/hello", (q, a) -> "Hello!");
+
     }
 
 }
