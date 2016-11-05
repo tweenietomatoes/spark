@@ -520,7 +520,7 @@ public class Spark {
     public static void webSocket(String path, Class<?> handler) {
         getInstance().webSocket(path, handler);
     }
-    
+
     public static void webSocket(String path, Object handler) {
         getInstance().webSocket(path, handler);
     }

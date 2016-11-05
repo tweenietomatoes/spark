@@ -46,12 +46,10 @@ public class MatcherFilter implements Filter {
 
     private static final String ACCEPT_TYPE_REQUEST_MIME_HEADER = "Accept";
     private static final String HTTP_METHOD_OVERRIDE_HEADER = "X-HTTP-Method-Override";
-
+    private static final String NOT_FOUND = "<html><body><h2>404 Not found</h2></body></html>";
     private final StaticFilesConfiguration staticFiles;
-
     private spark.route.Routes routeMatcher;
     private SerializerChain serializerChain;
-
     private boolean externalContainer;
     private boolean hasOtherHandlers;
 
@@ -151,7 +149,7 @@ public class MatcherFilter implements Filter {
 
         if (body.notSet() && !externalContainer) {
             LOG.info("The requested route [{}] has not been mapped in Spark for {}: [{}]",
-                uri, ACCEPT_TYPE_REQUEST_MIME_HEADER, acceptType);
+                     uri, ACCEPT_TYPE_REQUEST_MIME_HEADER, acceptType);
             httpResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
             body.set(String.format(NOT_FOUND));
         }
@@ -175,7 +173,5 @@ public class MatcherFilter implements Filter {
 
     public void destroy() {
     }
-
-    private static final String NOT_FOUND = "<html><body><h2>404 Not found</h2></body></html>";
 
 }

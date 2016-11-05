@@ -47,12 +47,9 @@ public class EmbeddedJettyServer implements EmbeddedServer {
 
     private static final int SPARK_DEFAULT_PORT = 4567;
     private static final String NAME = "Spark";
-
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private Handler handler;
     private Server server;
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private Map<String, WebSocketHandlerWrapper> webSocketHandlers;
     private Optional<Integer> webSocketIdleTimeoutMillis;
 

@@ -37,7 +37,7 @@ public enum HttpMethod {
      * {@link spark.route.HttpMethod#unsupported} will be returned.
      *
      * @param methodStr The string containing HTTP method name
-     * @return          The HttpMethod corresponding to the provided string
+     * @return The HttpMethod corresponding to the provided string
      */
     public static HttpMethod get(String methodStr) {
         HttpMethod method = methods.get(methodStr);

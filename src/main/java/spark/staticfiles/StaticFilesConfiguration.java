@@ -94,7 +94,7 @@ public class StaticFilesConfiguration {
                     httpResponse.setHeader(MimeType.CONTENT_TYPE, MimeType.fromResource(resource));
                     customHeaders.forEach(httpResponse::setHeader); //add all user-defined headers to response
                     OutputStream wrappedOutputStream = GzipUtils.checkAndWrap(httpRequest, httpResponse, false);
-                    
+
                     IOUtils.copy(resource.getInputStream(), wrappedOutputStream);
                     wrappedOutputStream.flush();
                     wrappedOutputStream.close();
@@ -197,7 +197,7 @@ public class StaticFilesConfiguration {
                 staticResourcesSet = true;
                 return true;
             }
-            
+
             LOG.error("Static file configuration failed.");
         }
         return false;

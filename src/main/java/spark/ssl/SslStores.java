@@ -29,16 +29,16 @@ public class SslStores {
     /**
      * Creates a Stores instance.
      *
-     * @param keystoreFile the keystoreFile
-     * @param keystorePassword the keystorePassword
-     * @param truststoreFile the truststoreFile
+     * @param keystoreFile       the keystoreFile
+     * @param keystorePassword   the keystorePassword
+     * @param truststoreFile     the truststoreFile
      * @param truststorePassword the truststorePassword
      * @return the SslStores instance.
      */
     public static SslStores create(String keystoreFile,
-                                String keystorePassword,
-                                String truststoreFile,
-                                String truststorePassword) {
+                                   String keystorePassword,
+                                   String truststoreFile,
+                                   String truststorePassword) {
 
         return new SslStores(keystoreFile, keystorePassword, truststoreFile, truststorePassword);
     }

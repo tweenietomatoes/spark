@@ -3,7 +3,7 @@ package spark.embeddedserver.jetty.websocket;
 import static java.util.Objects.requireNonNull;
 
 public class WebSocketHandlerClassWrapper implements WebSocketHandlerWrapper {
-    
+
     private final Class<?> handlerClass;
 
     public WebSocketHandlerClassWrapper(Class<?> handlerClass) {
@@ -11,6 +11,7 @@ public class WebSocketHandlerClassWrapper implements WebSocketHandlerWrapper {
         WebSocketHandlerWrapper.validateHandlerClass(handlerClass);
         this.handlerClass = handlerClass;
     }
+
     @Override
     public Object getHandler() {
         try {

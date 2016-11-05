@@ -39,15 +39,15 @@ public class Routes {
 
     private List<RouteEntry> routes;
 
-    public static Routes create() {
-        return new Routes();
-    }
-
     /**
      * Constructor
      */
     protected Routes() {
         routes = new ArrayList<>();
+    }
+
+    public static Routes create() {
+        return new Routes();
     }
 
     /**
