@@ -48,25 +48,9 @@ public class HaltException extends RuntimeException {
 
     /**
      * @return the statusCode
-     * @deprecated replaced by {@link #statusCode()}
-     */
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    /**
-     * @return the statusCode
      */
     public int statusCode() {
         return statusCode;
-    }
-
-    /**
-     * @return the body
-     * @deprecated replaced by {@link #body()}
-     */
-    public String getBody() {
-        return body;
     }
 
     /**

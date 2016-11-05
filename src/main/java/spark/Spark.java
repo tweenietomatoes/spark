@@ -653,33 +653,9 @@ public class Spark {
      * done.
      *
      * @param ipAddress The ipAddress
-     * @deprecated replaced by {@link #ipAddress(String)}
-     */
-    public static void setIpAddress(String ipAddress) {
-        getInstance().ipAddress(ipAddress);
-    }
-
-    /**
-     * Set the IP address that Spark should listen on. If not called the default
-     * address is '0.0.0.0'. This has to be called before any route mapping is
-     * done.
-     *
-     * @param ipAddress The ipAddress
      */
     public static void ipAddress(String ipAddress) {
         getInstance().ipAddress(ipAddress);
-    }
-
-    /**
-     * Set the port that Spark should listen on. If not called the default port
-     * is 4567. This has to be called before any route mapping is done.
-     * If provided port = 0 then the an arbitrary available port will be used.
-     *
-     * @param port The port number
-     * @deprecated replaced by {@link #port(int)}
-     */
-    public static void setPort(int port) {
-        getInstance().port(port);
     }
 
     /**
@@ -701,29 +677,6 @@ public class Spark {
      */
     public static int port() {
         return getInstance().port();
-    }
-
-    /**
-     * Set the connection to be secure, using the specified keystore and
-     * truststore. This has to be called before any route mapping is done. You
-     * have to supply a keystore file, truststore file is optional (keystore
-     * will be reused).
-     * This method is only relevant when using embedded Jetty servers. It should
-     * not be used if you are using Servlets, where you will need to secure the
-     * connection in the servlet container
-     *
-     * @param keystoreFile       The keystore file location as string
-     * @param keystorePassword   the password for the keystore
-     * @param truststoreFile     the truststore file location as string, leave null to reuse
-     *                           keystore
-     * @param truststorePassword the trust store password
-     * @deprecated replaced by {@link #secure(String, String, String, String)}
-     */
-    public static void setSecure(String keystoreFile,
-                                 String keystorePassword,
-                                 String truststoreFile,
-                                 String truststorePassword) {
-        getInstance().secure(keystoreFile, keystorePassword, truststoreFile, truststorePassword);
     }
 
     /**

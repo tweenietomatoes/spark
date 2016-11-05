@@ -79,21 +79,6 @@ public class SparkFilter implements Filter {
      * Default implementation looks up the class name in the filterConfig using the key {@value #APPLICATION_CLASS_PARAM}.
      * Subclasses can override this method to use different techniques to obtain an instance (i.e. dependency injection).
      *
-     * @param filterConfig the filter configuration for retrieving parameters passed to this filter.
-     * @return the spark application containing the configuration.
-     * @throws ServletException if anything went wrong.
-     * @deprecated Use {@link #getApplications(FilterConfig)} instead.
-     */
-    @Deprecated
-    protected SparkApplication getApplication(FilterConfig filterConfig) throws ServletException {
-        return getApplication(filterConfig.getInitParameter(APPLICATION_CLASS_PARAM));
-    }
-
-    /**
-     * Returns an instance of {@link SparkApplication} which on which {@link SparkApplication#init() init()} will be called.
-     * Default implementation looks up the class name in the filterConfig using the key {@value #APPLICATION_CLASS_PARAM}.
-     * Subclasses can override this method to use different techniques to obtain an instance (i.e. dependency injection).
-     *
      * @param applicationClassName the spark application class name passed to this filter.
      * @return the spark application containing the configuration.
      * @throws ServletException if anything went wrong.
