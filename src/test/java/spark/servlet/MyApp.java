@@ -5,11 +5,10 @@ import java.io.FileWriter;
 
 import static spark.Spark.after;
 import static spark.Spark.before;
-import static spark.Spark.externalStaticFileLocation;
 import static spark.Spark.get;
 import static spark.Spark.halt;
 import static spark.Spark.post;
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.staticFiles;
 
 public class MyApp implements SparkApplication {
 
@@ -20,8 +19,8 @@ public class MyApp implements SparkApplication {
     @Override
     public synchronized void init() {
         try {
-            externalStaticFileLocation(System.getProperty("java.io.tmpdir"));
-            staticFileLocation("/public");
+            staticFiles.externalLocation(System.getProperty("java.io.tmpdir"));
+            staticFiles.location("/public");
 
             tmpExternalFile = new File(System.getProperty("java.io.tmpdir"), EXTERNAL_FILE);
             FileWriter writer = new FileWriter(tmpExternalFile);

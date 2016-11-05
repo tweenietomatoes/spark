@@ -492,30 +492,6 @@ public class Spark {
     }
 
     /**
-     * Sets the folder in classpath serving static files. Observe: this method
-     * must be called before all other methods.
-     * -
-     * Note: contemplate changing tonew static files paradigm {@link spark.Service.StaticFiles}
-     *
-     * @param folder the folder in classpath.
-     */
-    public static void staticFileLocation(String folder) {
-        getInstance().staticFileLocation(folder);
-    }
-
-    /**
-     * Sets the external folder serving static files. <b>Observe: this method
-     * must be called before all other methods.</b>
-     * -
-     * Note: contemplate use of new static files paradigm {@link spark.Service.StaticFiles}
-     *
-     * @param externalFolder the external folder serving static files.
-     */
-    public static void externalStaticFileLocation(String externalFolder) {
-        getInstance().externalStaticFileLocation(externalFolder);
-    }
-
-    /**
      * Waits for the spark server to be initialized.
      * If it's already initialized will return immediately
      */

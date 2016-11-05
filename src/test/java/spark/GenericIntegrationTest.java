@@ -33,12 +33,11 @@ import spark.util.SparkTestUtil.UrlResponse;
 import static spark.Spark.after;
 import static spark.Spark.before;
 import static spark.Spark.exception;
-import static spark.Spark.externalStaticFileLocation;
 import static spark.Spark.get;
 import static spark.Spark.halt;
 import static spark.Spark.patch;
 import static spark.Spark.post;
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.staticFiles;
 import static spark.Spark.webSocket;
 
 public class GenericIntegrationTest {
@@ -69,8 +68,8 @@ public class GenericIntegrationTest {
         writer.flush();
         writer.close();
 
-        staticFileLocation("/public");
-        externalStaticFileLocation(System.getProperty("java.io.tmpdir"));
+        staticFiles.location("/public");
+        staticFiles.externalLocation(System.getProperty("java.io.tmpdir"));
         webSocket("/ws", WebSocketTestHandler.class);
 
         before("/secretcontent/*", (q, a) -> {

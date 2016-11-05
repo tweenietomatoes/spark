@@ -31,9 +31,7 @@ import spark.examples.exception.NotFoundException;
 import spark.util.SparkTestUtil;
 
 import static spark.Spark.exception;
-import static spark.Spark.externalStaticFileLocation;
 import static spark.Spark.get;
-import static spark.Spark.staticFileLocation;
 import static spark.Spark.staticFiles;
 
 /**
@@ -74,8 +72,8 @@ public class StaticFilesTest {
         writer.flush();
         writer.close();
 
-        staticFileLocation("/public");
-        externalStaticFileLocation(System.getProperty("java.io.tmpdir"));
+        staticFiles.location("/public");
+        staticFiles.externalLocation(System.getProperty("java.io.tmpdir"));
 
         get("/hello", (q, a) -> FO_SHIZZY);
 
