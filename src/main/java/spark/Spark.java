@@ -69,7 +69,7 @@ public class Spark {
      * @param path  the path
      * @param route The route
      */
-    public static void get(final String path, final Route route) {
+    public static void get(String path, Route route) {
         getInstance().get(path, route);
     }
 
