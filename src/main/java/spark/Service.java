@@ -552,6 +552,13 @@ public final class Service extends Routable {
         public void registerMimeType(String extension, String mimeType) {
             MimeType.register(extension, mimeType);
         }
+
+        /**
+         * Disables the automatic setting of Content-Type header made from a guess based on extension.
+         */
+        public void disableMimeTypeGuessing() {
+            MimeType.disableGuessing();
+        }
     }
 
 
