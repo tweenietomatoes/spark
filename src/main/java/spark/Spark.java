@@ -16,6 +16,8 @@
  */
 package spark;
 
+import java.util.Map;
+
 import static spark.Service.ignite;
 
 /**
@@ -539,6 +541,26 @@ public class Spark {
      */
     public static void init() {
         getInstance().init();
+    }
+
+    /**
+     * Set the template engine used to render templates
+     *
+     * @param templateEngine the template engine to use
+     */
+    public static void setTemplateEngine(TemplateEngine templateEngine) {
+        getInstance().setTemplateEngine(templateEngine);
+    }
+
+    /**
+     * Render a template with the specified model
+     *
+     * @param templatePath the path to the template file
+     * @param model        the model to use for the template
+     * @return the rendered template
+     */
+    public static String renderTemplate(String templatePath, Map<String, Object> model) {
+        return getInstance().renderTemplate(templatePath, model);
     }
 
 }

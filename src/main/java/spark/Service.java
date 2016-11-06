@@ -34,6 +34,7 @@ import spark.route.ServletRoutes;
 import spark.ssl.SslStores;
 import spark.staticfiles.MimeType;
 import spark.staticfiles.StaticFilesConfiguration;
+import spark.utils.Assert;
 
 import static java.util.Objects.requireNonNull;
 import static spark.globalstate.ServletFlag.isRunningFromServlet;
@@ -72,6 +73,8 @@ public final class Service extends Routable {
 
     protected EmbeddedServer server;
     protected Routes routes;
+
+    private TemplateEngine templateEngine;
 
     private boolean servletStaticLocationSet;
     private boolean servletExternalStaticLocationSet;
@@ -267,8 +270,8 @@ public final class Service extends Routable {
      * <p>
      * This is currently only available in the embedded server mode.
      *
-     * @param path    the WebSocket path.
-     * @param handler the handler class that will manage the WebSocket connection to the given path.
+     * @param path         the WebSocket path.
+     * @param handlerClass the handler class that will manage the WebSocket connection to the given path.
      */
     public void webSocket(String path, Class<?> handlerClass) {
         addWebSocketHandler(path, new WebSocketHandlerClassWrapper(handlerClass));
@@ -549,6 +552,28 @@ public final class Service extends Routable {
         public void registerMimeType(String extension, String mimeType) {
             MimeType.register(extension, mimeType);
         }
-
     }
+
+
+    /**
+     * Set the template engine used to render templates
+     *
+     * @param templateEngine the template engine to use
+     */
+    public void setTemplateEngine(TemplateEngine templateEngine) {
+        this.templateEngine = templateEngine;
+    }
+
+    /**
+     * Render a template with the specified model
+     *
+     * @param templatePath the path to the template file
+     * @param model        the model to use for the template
+     * @return the rendered template
+     */
+    public String renderTemplate(String templatePath, Map<String, Object> model) {
+        Assert.notNull(this.templateEngine);
+        return this.templateEngine.render(templatePath, model);
+    }
+
 }

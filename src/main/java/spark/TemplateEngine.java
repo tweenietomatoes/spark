@@ -7,10 +7,10 @@ public abstract class TemplateEngine {
     /**
      * Renders a template given a model (map) and a template path
      *
-     * @param model        the model to use to render the template
      * @param templatePath the path to the template location
+     * @param model        the model to use to render the template
      * @return the template rendered using the provided model
      */
-    public abstract String render(Map<String, Object> model, String templatePath);
+    public abstract String render(String templatePath, Map<String, Object> model);
 
 }
