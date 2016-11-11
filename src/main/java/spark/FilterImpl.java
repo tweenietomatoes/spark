@@ -89,7 +89,7 @@ public abstract class FilterImpl implements Filter, Wrapper {
     /**
      * Returns this route's path
      */
-    String getPath() {
+    public String getPath() {
         return this.path;
     }
 

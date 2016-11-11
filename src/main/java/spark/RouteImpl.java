@@ -131,7 +131,7 @@ public abstract class RouteImpl implements Route, Wrapper {
     /**
      * @return the path
      */
-    String getPath() {
+    public String getPath() {
         return this.path;
     }
 
